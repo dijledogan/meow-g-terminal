@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MEOW-G TERMINAL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+  <style>
+/* style.css - Sayfa cercevesi ve piksel font.
+   Font: Press Start 2P (SIL Open Font License). Internet olmadan da calissin diye dosyanin icine gomuldu. */
+@font-face {
+  font-family: "PS2P Local";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(data:font/woff2;base64,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) format("woff2");
+}
+
+:root {
+  --bg: #07050f;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #07050f; } }
+:root[data-theme="dark"] { --bg: #07050f; }
+
+html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
+body { background: #07050f; }
+#game { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+#game canvas { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+</style>
+  <!-- Phaser 3: 2D oyun motoru (fizik, animasyon, kamera) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+  <script>
+/* ============================================================
+   levels.js - Bolum tasarimlari
+   Olcu birimi: 1 karo (TILE) = 16 piksel. Ekran 480x272 piksel.
+   Zemin ust yuzu 15. satirda (y = 15 * 16 = 240 piksel).
+
+   Alanlarin anlami:
+     solids      [x, y, genislik, yukseklik]        katı bloklar / platformlar
+     spikes      [x, y, genislik]                   dikenler
+     lasers      [x, ustSatir, periyotMs, gecikmeMs] dikey lazer kapilari
+     zones       [x, y, genislik, yukseklik]        sifir yercekimi alanlari
+     mines       [x, y, genlikPiksel, periyotMs]    yukari-asagi gezen mayinlar
+     checkpoints [x, y]                             kayit noktalari
+     cargo       [x, y, tur]   tur: 'b' = mavi kutu, 'k' = kahverengi kutu
+   ============================================================ */
+
+const TILE = 16;
+
+const LEVELS = [
+  {
+    id: 1, name: 'KARGO KOLTUGU', cols: 92, par: 60,
+    start: [2, 15], exit: [88, 13],
+    solids: [
+      [0, 15, 24, 2], [8, 13, 5, 1], [15, 11, 4, 1],
+      [27, 15, 16, 2], [33, 13, 3, 2], [38, 11, 4, 1],
+      [46, 15, 14, 2], [55, 12, 4, 1],
+      [63, 15, 29, 2], [68, 12, 2, 3], [72, 10, 4, 1]
+    ],
+    spikes: [[50, 14, 3]],
+    lasers: [], zones: [], mines: [],
+    checkpoints: [[47, 15]],
+    hints: [
+      [9, 7, 'OKLAR: YURU  YUKARI: ZIPLA'],
+      [35, 9, 'TUM KARGOLARI TOPLA!'],
+      [51, 9, 'DIKENLERDEN KACIN!'],
+      [82, 10, 'KARGO TAMAMSA KAPI ACILIR']
+    ],
+    cargo: [
+      [9, 12, 'b'], [16, 10, 'b'], [30, 14, 'k'], [34, 12, 'b'],
+      [39, 10, 'k'], [51, 12, 'b'], [57, 11, 'k'], [73, 9, 'b']
+    ]
+  },
+  {
+    id: 2, name: 'LAZER KORIDORU', cols: 100, par: 80,
+    start: [2, 15], exit: [95, 13],
+    solids: [
+      [0, 15, 20, 2], [6, 12, 4, 1],
+      [23, 15, 24, 2],
+      [47, 16, 16, 1],
+      [63, 15, 37, 2], [68, 12, 3, 1], [73, 10, 4, 1]
+    ],
+    spikes: [[47, 15, 16], [66, 14, 2]],
+    lasers: [[30, 9, 3200, 0], [40, 9, 3200, 1600], [80, 9, 3200, 0], [85, 9, 3200, 1600], [90, 9, 3200, 0]],
+    zones: [[47, 3, 16, 12]],
+    mines: [[55, 9, 35, 2500]],
+    checkpoints: [[25, 15], [64, 15]],
+    hints: [
+      [9, 9, 'LAZERLER ACILIP KAPANIR'],
+      [35, 12, 'KAPANINCA GEC!'],
+      [55, 5, 'YUKARI / ASAGI: SERBEST UC']
+    ],
+    cargo: [
+      [7, 11, 'b'], [27, 13, 'k'], [35, 14, 'b'], [44, 12, 'k'],
+      [50, 9, 'b'], [54, 6, 'k'], [58, 11, 'b'],
+      [69, 11, 'b'], [75, 9, 'k'], [87, 14, 'b']
+    ]
+  },
+  {
+    id: 3, name: 'SIFIR-G REAKTOR', cols: 112, par: 100,
+    start: [2, 15], exit: [107, 13],
+    solids: [
+      [0, 15, 14, 2], [4, 12, 3, 1],
+      [17, 15, 10, 2], [22, 12, 4, 1],
+      [30, 15, 9, 2],
+      [39, 16, 20, 1],
+      [59, 15, 14, 2], [62, 12, 3, 1],
+      [76, 15, 36, 2], [78, 12, 3, 1], [83, 10, 4, 1], [89, 12, 3, 1]
+    ],
+    spikes: [[19, 14, 2], [39, 15, 20], [86, 14, 3]],
+    lasers: [[34, 9, 3200, 0], [66, 9, 3200, 0], [70, 9, 3200, 1600], [95, 9, 3200, 0], [100, 9, 3200, 1600]],
+    zones: [[39, 2, 20, 13]],
+    mines: [[42, 6, 40, 2400], [47, 11, 32, 2000], [52, 8, 38, 2600], [56, 5, 40, 2200]],
+    checkpoints: [[18, 15], [60, 15], [77, 15]],
+    hints: [
+      [9, 9, 'SON SEKTOR: REAKTOR!'],
+      [49, 4, 'MAYINLARA DOKUNMA!']
+    ],
+    cargo: [
+      [5, 11, 'b'], [23, 11, 'k'], [29, 12, 'b'], [36, 14, 'b'],
+      [44, 10, 'b'], [49, 5, 'k'], [54, 12, 'b'], [57, 9, 'k'],
+      [63, 11, 'k'], [79, 11, 'b'], [84, 9, 'b'], [97, 14, 'k']
+    ]
+  }
+];
+
+/* Her kargoya essiz bir Kargo_ID, agirlik ve puan veriyoruz.
+   Bu bilgiler veritabanina (Kargolar tablosu) yazilacak. */
+(function kargoKimlikleriVer() {
+  let id = 1;
+  LEVELS.forEach(L => {
+    L.cargo = L.cargo.map(([x, y, t]) => ({
+      id: id++, x, y, tur: t,
+      agirlik: t === 'k' ? 8 : 5,   // kg
+      puan: t === 'k' ? 25 : 10
+    }));
+  });
+})();
+
+</script>
+  <script>
+/* ============================================================
+   db.js - Veritabani katmani (sql.js = tarayicida calisan gercek SQLite)
+
+   Oyunun arka planinda calisan SQL burada. Oyun, her olayda asagidaki
+   fonksiyonlardan birini cagirir; fonksiyonlar gercek SQL sorgusu calistirir:
+
+     init()          CREATE TABLE, INSERT (tablolari kur, bolum/kargo verisini yaz)
+     resetRun()      UPDATE  (yeni oyunda tum kargolari 'Havada' yap)
+     collect()       UPDATE  (toplanan kargoyu 'Toplandi' yap)
+     cargoProgress() SELECT COUNT + CASE + WHERE (bolumde kac kargo toplandi?)
+     runStats()      SELECT COUNT, SUM (toplanan kargo adedi ve toplam agirlik)
+     saveScore()     INSERT  (oyuncu ve skor kaydi)
+     topScores()     SELECT + INNER JOIN + GROUP BY + ORDER BY + LIMIT (liderlik tablosu)
+
+   Veritabani tarayicinin localStorage'ina kaydedilir; sayfa yenilense de
+   skorlar kaybolmaz.
+
+   Not: sql.js yuklenemezse oyun bozulmasin diye ayni islevleri goren basit bir
+   yedek mod (saf JavaScript) devreye girer. Menude hangi modun aktif oldugu yazar.
+   ============================================================ */
+
+const GameDB = (() => {
+  const CDN = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/';
+  const LS_SQL = 'zerog_sqlite_v1';
+  const LS_FB = 'zerog_yedek_v1';
+
+  let SQL = null;       // sql.js motoru
+  let db = null;        // SQLite veritabani
+  let mode = 'YEDEK';   // 'SQLITE' veya 'YEDEK'
+  let onLog = null;     // son SQL'i ekranda gostermek icin
+  let lastSql = '';
+  let fb = null;        // yedek mod verisi
+
+  /* ---------- yardimcilar ---------- */
+  function fmt(sql, params) {
+    let i = 0;
+    return sql.replace(/\s+/g, ' ').trim().replace(/\?/g, () => {
+      const v = (params || [])[i++];
+      return typeof v === 'string' ? "'" + v + "'" : String(v);
+    });
+  }
+  function note(sql, params) {
+    lastSql = fmt(sql, params);
+    if (onLog) onLog(lastSql);
+  }
+  function loadScript(url) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = url;
+      s.onload = resolve;
+      s.onerror = () => reject(new Error('Yuklenemedi: ' + url));
+      document.head.appendChild(s);
+    });
+  }
+  function withTimeout(p, ms) {
+    return Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('Zaman asimi')), ms))]);
+  }
+  function toBase64(bytes) {
+    let s = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(s);
+  }
+  function fromBase64(b64) {
+    const s = atob(b64);
+    const a = new Uint8Array(s.length);
+    for (let i = 0; i < s.length; i++) a[i] = s.charCodeAt(i);
+    return a;
+  }
+
+  /* ---------- SQL sorgu yardimcilari ---------- */
+  function all(sql, params) {
+    note(sql, params);
+    const st = db.prepare(sql);
+    st.bind(params || []);
+    const rows = [];
+    while (st.step()) rows.push(st.getAsObject());
+    st.free();
+    return rows;
+  }
+  function run(sql, params) {
+    note(sql, params);
+    db.run(sql, params || []);
+  }
+  function persist() {
+    try {
+      if (mode === 'SQLITE') localStorage.setItem(LS_SQL, toBase64(db.export()));
+      else localStorage.setItem(LS_FB, JSON.stringify({ oyuncular: fb.oyuncular, skorlar: fb.skorlar }));
+    } catch (e) { /* depolama kapaliysa sessizce gec */ }
+  }
+
+  /* ---------- Sema: tablolar, PRIMARY KEY, FOREIGN KEY, CHECK ---------- */
+  const SCHEMA = `
+    CREATE TABLE IF NOT EXISTS Oyuncular (
+      Oyuncu_ID      INTEGER PRIMARY KEY AUTOINCREMENT,
+      Kullanici_Adi  TEXT NOT NULL UNIQUE,
+      Kayit_Tarihi   TEXT DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE TABLE IF NOT EXISTS Bolumler (
+      Bolum_ID     INTEGER PRIMARY KEY,
+      Bolum_Adi    TEXT NOT NULL,
+      Hedef_Kargo  INTEGER NOT NULL CHECK (Hedef_Kargo > 0)
+    );
+    CREATE TABLE IF NOT EXISTS Kargolar (
+      Kargo_ID  INTEGER PRIMARY KEY,
+      Bolum_ID  INTEGER NOT NULL,
+      Tur       TEXT NOT NULL CHECK (Tur IN ('Mavi', 'Kahverengi')),
+      Agirlik   INTEGER NOT NULL,
+      Puan      INTEGER NOT NULL,
+      Durum     TEXT NOT NULL DEFAULT 'Havada' CHECK (Durum IN ('Havada', 'Toplandi')),
+      FOREIGN KEY (Bolum_ID) REFERENCES Bolumler (Bolum_ID)
+    );
+    CREATE TABLE IF NOT EXISTS Skorlar (
+      Skor_ID         INTEGER PRIMARY KEY AUTOINCREMENT,
+      Oyuncu_ID       INTEGER NOT NULL,
+      Skor            INTEGER NOT NULL,
+      Toplanan_Kargo  INTEGER NOT NULL,
+      Sure_Sn         INTEGER NOT NULL,
+      Tarih           TEXT DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (Oyuncu_ID) REFERENCES Oyuncular (Oyuncu_ID)
+    );
+  `;
+
+  function setupSql(levels) {
+    let saved = null;
+    try { saved = localStorage.getItem(LS_SQL); } catch (e) {}
+    try { db = saved ? new SQL.Database(fromBase64(saved)) : new SQL.Database(); }
+    catch (e) { db = new SQL.Database(); }
+    db.run('PRAGMA foreign_keys = ON;');
+    db.run(SCHEMA);
+    // Bolum ve kargo bilgisi koddan gelir; her acilista yeniden yazilir.
+    db.run('DELETE FROM Kargolar; DELETE FROM Bolumler;');
+    levels.forEach(L => {
+      db.run('INSERT INTO Bolumler (Bolum_ID, Bolum_Adi, Hedef_Kargo) VALUES (?, ?, ?)', [L.id, L.name, L.cargo.length]);
+      L.cargo.forEach(c => {
+        db.run('INSERT INTO Kargolar (Kargo_ID, Bolum_ID, Tur, Agirlik, Puan) VALUES (?, ?, ?, ?, ?)',
+          [c.id, L.id, c.tur === 'k' ? 'Kahverengi' : 'Mavi', c.agirlik, c.puan]);
+      });
+    });
+    persist();
+    // Acilis sorgularini ekranda gostermeyelim
+    lastSql = "CREATE TABLE Oyuncular, Bolumler, Kargolar, Skorlar";
+  }
+
+  function setupFallback(levels) {
+    fb = { kargolar: [], oyuncular: [], skorlar: [] };
+    levels.forEach(L => L.cargo.forEach(c => fb.kargolar.push({ id: c.id, bolum: L.id, agirlik: c.agirlik, puan: c.puan, durum: 'Havada' })));
+    try {
+      const s = JSON.parse(localStorage.getItem(LS_FB) || 'null');
+      if (s) { fb.oyuncular = s.oyuncular || []; fb.skorlar = s.skorlar || []; }
+    } catch (e) {}
+    lastSql = 'YEDEK MOD';
+  }
+
+  /* ---------- disariya acilan fonksiyonlar ---------- */
+  async function init(levels) {
+    try {
+      try {
+        // asm.js surumu: .wasm dosyasi indirmek gerekmez, her ortamda calisir
+        await withTimeout(loadScript(CDN + 'sql-asm.js'), 12000);
+        SQL = await window.initSqlJs();
+      } catch (e1) {
+        await withTimeout(loadScript(CDN + 'sql-wasm.js'), 12000);
+        SQL = await window.initSqlJs({ locateFile: f => CDN + f });
+      }
+      mode = 'SQLITE';
+      setupSql(levels);
+    } catch (e) {
+      console.warn('[db] sql.js kullanilamadi, yedek mod:', e);
+      SQL = null; db = null; mode = 'YEDEK';
+      setupFallback(levels);
+    }
+  }
+
+  function resetRun() {
+    if (mode === 'SQLITE') run("UPDATE Kargolar SET Durum = 'Havada'");
+    else { note("UPDATE Kargolar SET Durum = 'Havada'"); fb.kargolar.forEach(k => k.durum = 'Havada'); }
+  }
+
+  function collect(id) {
+    const sql = "UPDATE Kargolar SET Durum = 'Toplandi' WHERE Kargo_ID = ?";
+    if (mode === 'SQLITE') run(sql, [id]);
+    else { note(sql, [id]); const k = fb.kargolar.find(k => k.id === id); if (k) k.durum = 'Toplandi'; }
+  }
+
+  function cargoProgress(levelId) {
+    const sql = "SELECT COUNT(*) AS Toplam, SUM(CASE WHEN Durum = 'Toplandi' THEN 1 ELSE 0 END) AS Toplanan FROM Kargolar WHERE Bolum_ID = ?";
+    if (mode === 'SQLITE') {
+      const r = all(sql, [levelId])[0];
+      return { toplam: r.Toplam || 0, toplanan: r.Toplanan || 0 };
+    }
+    note(sql, [levelId]);
+    const list = fb.kargolar.filter(k => k.bolum === levelId);
+    return { toplam: list.length, toplanan: list.filter(k => k.durum === 'Toplandi').length };
+  }
+
+  function runStats() {
+    const sql = "SELECT COUNT(*) AS Adet, IFNULL(SUM(Agirlik), 0) AS Agirlik FROM Kargolar WHERE Durum = 'Toplandi'";
+    if (mode === 'SQLITE') {
+      const r = all(sql)[0];
+      return { adet: r.Adet, agirlik: r.Agirlik };
+    }
+    note(sql);
+    const t = fb.kargolar.filter(k => k.durum === 'Toplandi');
+    return { adet: t.length, agirlik: t.reduce((a, k) => a + k.agirlik, 0) };
+  }
+
+  function saveScore(name, score, cargo, sec) {
+    if (mode === 'SQLITE') {
+      run('INSERT OR IGNORE INTO Oyuncular (Kullanici_Adi) VALUES (?)', [name]);
+      const id = all('SELECT Oyuncu_ID FROM Oyuncular WHERE Kullanici_Adi = ?', [name])[0].Oyuncu_ID;
+      run('INSERT INTO Skorlar (Oyuncu_ID, Skor, Toplanan_Kargo, Sure_Sn) VALUES (?, ?, ?, ?)', [id, score, cargo, sec]);
+    } else {
+      note('INSERT INTO Skorlar (Oyuncu_ID, Skor, Toplanan_Kargo, Sure_Sn) VALUES (?, ?, ?, ?)', [name, score, cargo, sec]);
+      fb.skorlar.push({ ad: name, skor: score, kargo: cargo, sure: sec });
+    }
+    persist();
+  }
+
+  function topScores(limit) {
+    const sql = `SELECT o.Kullanici_Adi AS Ad, MAX(s.Skor) AS Skor, COUNT(s.Skor_ID) AS Oyun
+                 FROM Skorlar s INNER JOIN Oyuncular o ON o.Oyuncu_ID = s.Oyuncu_ID
+                 GROUP BY o.Oyuncu_ID ORDER BY Skor DESC LIMIT ?`;
+    if (mode === 'SQLITE') return all(sql, [limit]);
+    note(sql, [limit]);
+    const map = {};
+    fb.skorlar.forEach(s => {
+      const m = map[s.ad] || (map[s.ad] = { Ad: s.ad, Skor: 0, Oyun: 0 });
+      m.Skor = Math.max(m.Skor, s.skor); m.Oyun++;
+    });
+    return Object.values(map).sort((a, b) => b.Skor - a.Skor).slice(0, limit);
+  }
+
+  return {
+    init, resetRun, collect, cargoProgress, runStats, saveScore, topScores,
+    setLogger(fn) { onLog = fn; },
+    get lastSql() { return lastSql; },
+    get mode() { return mode; },
+    get label() { return mode === 'SQLITE' ? 'VERITABANI: SQLITE (SQL.JS)' : 'VERITABANI: YEDEK MOD'; }
+  };
+})();
+
+</script>
+  <script>
+/* ============================================================
+   audio.js - 8-bit ses efektleri ve kucuk bir muzik dongusu.
+   Hicbir ses dosyasi yok: sesler tarayicinin Web Audio API'si ile
+   kodla uretiliyor (kare dalga / ucgen dalga).
+   ============================================================ */
+
+const SFX = (() => {
+  let ctx = null;
+  let muted = false;
+  let musicTimer = null;
+  let step = 0;
+
+  function ensure() {
+    if (!ctx) {
+      try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { ctx = null; }
+    }
+    if (ctx && ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+
+  function tone(freq, dur, type, vol, slideTo, delay) {
+    if (muted) return;
+    const c = ensure();
+    if (!c) return;
+    const t = c.currentTime + (delay || 0);
+    const o = c.createOscillator();
+    const g = c.createGain();
+    o.type = type || 'square';
+    o.frequency.setValueAtTime(freq, t);
+    if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+    g.gain.setValueAtTime(vol || 0.06, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(c.destination);
+    o.start(t); o.stop(t + dur + 0.03);
+  }
+
+  const sounds = {
+    tick:     () => tone(660, 0.04, 'square', 0.04),
+    jump:     () => tone(260, 0.13, 'square', 0.05, 640),
+    collect:  () => { tone(880, 0.07, 'square', 0.06); tone(1320, 0.14, 'square', 0.06, null, 0.07); },
+    hurt:     () => tone(260, 0.35, 'sawtooth', 0.09, 45),
+    laser:    () => tone(900, 0.08, 'sawtooth', 0.025, 300),
+    zerog:    () => tone(300, 0.4, 'triangle', 0.06, 900),
+    checkpoint: () => { tone(660, 0.08, 'square', 0.05); tone(990, 0.12, 'square', 0.05, null, 0.08); },
+    open:     () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.12, 'square', 0.05, null, i * 0.07)); },
+    nope:     () => tone(180, 0.18, 'square', 0.05, 120),
+    win:      () => { [523, 659, 784, 659, 784, 1047].forEach((f, i) => tone(f, 0.16, 'square', 0.06, null, i * 0.11)); },
+    gameover: () => { [392, 330, 262, 196].forEach((f, i) => tone(f, 0.28, 'triangle', 0.08, null, i * 0.2)); },
+    start:    () => { [330, 440, 554, 660].forEach((f, i) => tone(f, 0.1, 'square', 0.05, null, i * 0.06)); }
+  };
+
+  /* Basit muzik: bas + arpej, La minor */
+  const BASS = [55, 55, 65.41, 49, 55, 55, 73.42, 65.41];
+  const ARP  = [440, 523.25, 659.25, 523.25, 440, 587.33, 698.46, 587.33];
+  function musicTick() {
+    if (muted) return;
+    tone(BASS[step % 8], 0.22, 'triangle', 0.05);
+    if (step % 2 === 1) tone(ARP[step % 8], 0.09, 'square', 0.012);
+    step++;
+  }
+  function startMusic() {
+    if (musicTimer || muted) return;
+    musicTimer = setInterval(musicTick, 230);
+  }
+  function stopMusic() {
+    clearInterval(musicTimer);
+    musicTimer = null;
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (!ctx) return;
+    if (document.hidden) ctx.suspend(); else if (!muted) ctx.resume();
+  });
+
+  return {
+    play(name) { if (sounds[name]) sounds[name](); },
+    /* Ilk tus/tik hareketinden sonra cagrilir (tarayici izni icin sart) */
+    start() { ensure(); startMusic(); },
+    toggleMute() {
+      muted = !muted;
+      if (muted) stopMusic(); else { ensure(); startMusic(); }
+      return muted;
+    },
+    get muted() { return muted; }
+  };
+})();
+
+</script>
+  <script>
+/* ============================================================
+   art.js - Butun piksel grafikleri KODLA cizilir (dis resim dosyasi yok).
+   Her sprite kucuk bir canvas'a piksel piksel boyanir, Phaser'a doku
+   olarak eklenir. Oyun 480x272 cozunurlukte cizilip ekrana buyutuldugu
+   icin kalin, net "retro piksel" gorunumu otomatik olusur.
+
+   Renk paleti referans gorselden alindi: koyu mor-lacivert uzay,
+   seftali renkli ay, mavi-gri metal paneller, sari-siyah tehlike seritleri,
+   turuncu astronot kedi.
+   ============================================================ */
+
+const ART = (() => {
+  const W = 480, H = 272;
+
+  function px(c, x, y, w, h, col) { c.fillStyle = col; c.fillRect(x, y, w, h); }
+
+  /* Doku olustur (varsa tekrar olusturma) */
+  function mk(scene, key, w, h, draw) {
+    if (scene.textures.exists(key)) return;
+    const t = scene.textures.createCanvas(key, w, h);
+    const c = t.getContext();
+    c.imageSmoothingEnabled = false;
+    draw(c, w, h);
+    t.refresh();
+  }
+
+  function mulberry32(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+
+  /* ---------------- ASTRONOT KEDI (16x17 piksel) ---------------- */
+  const CAT_COL = {
+    H: '#8fd3ff', h: '#e6f7ff', q: '#27407a',          // kask
+    O: '#ff9a2e', o: '#d9701a', E: '#16142a', N: '#ff6f91', // kedi
+    W: '#e8eefc', B: '#3f7fe0', b: '#2a56a8',          // tulum
+    Y: '#f2c14e', R: '#e0405a', G: '#8a90a8'           // rozet, bot
+  };
+  const CAT_TOP = [
+    '....HHHHHHHH....',
+    '...HqOqqqqOqH...',
+    '..HqOOqqqqOOqH..',
+    '..HqOOOOOOOOqH..',
+    '..HqOoOOOOoOqH..',
+    '..HqOEOOOOEOqH..',
+    '..HqOEOOOOEOqH..',
+    '..HqOOONNOOOqH..',
+    '...HqOOOOOOqH...',
+    '....HWWWWWWH....',
+    '...bBBYBBRBBb...',
+    '...bBBBBBBBBb...',
+    '....BBBBBBBB....'
+  ];
+  const CAT_LEGS = {
+    stand: ['....bBB..BBb....', '....bBB..BBb....', '...GGGG..GGGG...'],
+    walkA: ['....bBB..BBb....', '...bBB....BBb...', '..GGGG....GGGG..'],
+    walkB: ['....bBB..BBb....', '....bBB...bBB...', '...GGGG....GGGG.'],
+    jump:  ['....bBB..BBb....', '....bBBBBBBb....', '....GGG..GGG....']
+  };
+  const TAIL_A = [[3, 12, 'O'], [2, 12, 'O'], [1, 11, 'O'], [1, 10, 'O'], [1, 9, 'o'], [2, 8, 'O']];
+  const TAIL_B = [[3, 12, 'O'], [2, 12, 'O'], [1, 12, 'O'], [0, 11, 'O'], [0, 10, 'o'], [1, 9, 'O']];
+  const TAIL_UP = [[3, 12, 'O'], [2, 11, 'O'], [2, 10, 'O'], [2, 9, 'o'], [2, 8, 'O'], [2, 7, 'O']];
+
+  function drawCat(c, legs, tail, yoff, hurt) {
+    tail.forEach(([x, y, k]) => px(c, x, y + yoff, 1, 1, CAT_COL[k]));
+    CAT_TOP.concat(CAT_LEGS[legs]).forEach((row, ry) => {
+      for (let rx = 0; rx < 16; rx++) {
+        const ch = row[rx];
+        if (ch !== '.') px(c, rx, ry + yoff, 1, 1, CAT_COL[ch]);
+      }
+    });
+    // kask parlamasi
+    px(c, 3, 1 + yoff, 1, 1, CAT_COL.h);
+    px(c, 2, 3 + yoff, 1, 1, CAT_COL.h);
+    px(c, 2, 4 + yoff, 1, 1, CAT_COL.h);
+    if (hurt) {
+      // aci cekince: kapali gozler + acik agiz
+      [[5, 5], [5, 6], [10, 5], [10, 6]].forEach(([x, y]) => px(c, x, y + yoff, 1, 1, CAT_COL.O));
+      [[4, 6], [5, 6], [10, 6], [11, 6]].forEach(([x, y]) => px(c, x, y + yoff, 1, 1, CAT_COL.E));
+      px(c, 7, 7 + yoff, 2, 1, CAT_COL.E);
+    }
+  }
+
+  function buildCat(scene) {
+    const frames = {
+      cat_idle0: ['stand', TAIL_A, 1], cat_idle1: ['stand', TAIL_B, 0],
+      cat_walk0: ['walkA', TAIL_A, 1], cat_walk1: ['stand', TAIL_B, 0],
+      cat_walk2: ['walkB', TAIL_A, 1], cat_walk3: ['stand', TAIL_B, 0],
+      cat_jump:  ['jump', TAIL_UP, 0]
+    };
+    Object.keys(frames).forEach(k => {
+      const [legs, tail, yoff] = frames[k];
+      mk(scene, k, 16, 17, c => drawCat(c, legs, tail, yoff, false));
+    });
+    mk(scene, 'cat_hurt', 16, 17, c => drawCat(c, 'stand', TAIL_B, 1, true));
+  }
+
+  /* ---------------- KARGO KUTULARI (16x16) ---------------- */
+  function cornersCut(c) {
+    [[0, 0], [15, 0], [0, 15], [15, 15]].forEach(([x, y]) => c.clearRect(x, y, 1, 1));
+  }
+  function buildBoxes(scene) {
+    mk(scene, 'box_blue', 16, 16, c => {
+      px(c, 0, 0, 16, 16, '#12214d');
+      px(c, 1, 1, 14, 14, '#3b6fd4');
+      px(c, 1, 1, 14, 2, '#6aa0f0');
+      px(c, 1, 1, 2, 14, '#5b8fe6');
+      px(c, 1, 13, 14, 2, '#2f58ab');
+      px(c, 6, 1, 4, 3, '#a8c8ff');
+      px(c, 4, 8, 2, 4, '#cfe3ff'); px(c, 7, 6, 2, 6, '#cfe3ff'); px(c, 10, 9, 2, 3, '#cfe3ff');
+      cornersCut(c);
+    });
+    mk(scene, 'box_brown', 16, 16, c => {
+      px(c, 0, 0, 16, 16, '#4a2c16');
+      px(c, 1, 1, 14, 14, '#a0673a');
+      px(c, 1, 1, 14, 2, '#c98e57');
+      px(c, 1, 1, 2, 14, '#b87a46');
+      px(c, 1, 13, 14, 2, '#7d4d29');
+      px(c, 7, 1, 2, 14, '#d9b27c');
+      px(c, 9, 8, 4, 4, '#efe3c8');
+      px(c, 10, 9, 1, 1, '#7d4d29'); px(c, 12, 9, 1, 1, '#7d4d29'); px(c, 10, 11, 2, 1, '#7d4d29');
+      cornersCut(c);
+    });
+  }
+
+  /* ---------------- TEHLIKELER ---------------- */
+  function buildHazards(scene) {
+    mk(scene, 'spikes', 16, 16, c => {
+      px(c, 0, 12, 16, 4, '#3c4268');
+      px(c, 0, 12, 16, 1, '#5a6290');
+      px(c, 2, 14, 2, 1, '#262a45'); px(c, 12, 14, 2, 1, '#262a45');
+      const wid = [1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4];
+      [0, 6, 12].forEach(x0 => {
+        wid.forEach((w, r) => {
+          const xs = x0 + Math.floor((4 - w) / 2);
+          for (let i = 0; i < w; i++) px(c, xs + i, r, 1, 1, i < w / 2 ? '#d5dbf0' : '#8a92b2');
+        });
+      });
+    });
+    mk(scene, 'mine', 16, 16, c => {
+      for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) {
+        const d = Math.hypot(x - 7.5, y - 7.5);
+        if (d <= 4.7) px(c, x, y, 1, 1, d > 3.6 ? '#3a4066' : '#5b6485');
+      }
+      px(c, 5, 5, 2, 2, '#9aa3c8');
+      px(c, 7, 7, 2, 2, '#ff3b5c');
+      [[7, 0], [7, 14], [0, 7], [14, 7]].forEach(([x, y]) => px(c, x, y, 2, 2, '#c5cbe0'));
+      [[2, 2], [12, 2], [2, 12], [12, 12]].forEach(([x, y]) => px(c, x, y, 2, 2, '#c5cbe0'));
+      [[7, 2], [7, 12], [2, 7], [12, 7]].forEach(([x, y]) => px(c, x, y, 2, 2, '#8a92b2'));
+    });
+    // lazer yayicilari (acik / kapali)
+    [['on', '#ff3b5c'], ['off', '#5a2030']].forEach(([n, col]) => {
+      mk(scene, 'emit_' + n, 16, 5, c => {
+        px(c, 0, 0, 16, 3, '#2a2e48'); px(c, 2, 3, 12, 2, '#454c75'); px(c, 6, 3, 4, 2, col);
+        px(c, 0, 0, 16, 1, '#4e5683');
+      });
+      mk(scene, 'plate_' + n, 16, 3, c => {
+        px(c, 0, 0, 16, 3, '#2a2e48'); px(c, 6, 0, 4, 2, col); px(c, 0, 2, 16, 1, '#171a2e');
+      });
+    });
+  }
+
+  /* ---------------- KAPI, KONTROL NOKTASI, EFEKTLER ---------------- */
+  function buildProps(scene) {
+    mk(scene, 'door_closed', 16, 32, c => {
+      px(c, 0, 0, 16, 32, '#20233a');
+      px(c, 1, 1, 14, 30, '#3a4066');
+      px(c, 3, 3, 10, 26, '#2b304e');
+      px(c, 7, 3, 2, 26, '#1a1d33');
+      px(c, 3, 5, 2, 2, '#ff3b5c'); px(c, 11, 5, 2, 2, '#ff3b5c');
+      for (let i = 0; i < 10; i++) px(c, 3 + i, 24 + (i % 2), 1, 3 - (i % 2), (i >> 1) % 2 ? '#f2c14e' : '#1a1c2c');
+    });
+    mk(scene, 'door_open', 16, 32, c => {
+      px(c, 0, 0, 16, 32, '#20233a');
+      px(c, 1, 1, 14, 30, '#3a4066');
+      px(c, 3, 3, 10, 26, '#070a16');
+      px(c, 5, 6, 6, 22, '#0f1a3a');
+      px(c, 6, 10, 4, 14, '#1c3270');
+      px(c, 7, 8, 1, 1, '#ffffff'); px(c, 10, 14, 1, 1, '#f2c14e'); px(c, 6, 20, 1, 1, '#d94fd0');
+      px(c, 3, 5, 2, 2, '#2bd96b'); px(c, 11, 5, 2, 2, '#2bd96b');
+    });
+    [['off', '#5a2030'], ['on', '#2bd96b']].forEach(([n, col]) => {
+      mk(scene, 'cp_' + n, 8, 16, c => {
+        px(c, 3, 4, 2, 12, '#8a90a8');
+        px(c, 1, 14, 6, 2, '#4a5170');
+        px(c, 2, 0, 4, 4, col);
+        px(c, 2, 0, 1, 1, '#ffffff');
+      });
+    });
+    mk(scene, 'spark', 3, 3, c => { px(c, 1, 0, 1, 3, '#fff'); px(c, 0, 1, 3, 1, '#fff'); });
+    mk(scene, 'bubble', 2, 2, c => px(c, 0, 0, 2, 2, '#bfe6ff'));
+  }
+
+  /* ---------------- PLATFORM / ZEMIN ---------------- */
+  function stripeBand(c, x, y, w, h) {
+    for (let yy = 0; yy < h; yy++) for (let xx = 0; xx < w; xx++) {
+      px(c, x + xx, y + yy, 1, 1, ((x + xx + yy) >> 2) & 1 ? '#f2c14e' : '#1a1c2c');
+    }
+  }
+  function metalTile(c, x, y, seed) {
+    px(c, x, y, 16, 16, '#3f4670');
+    px(c, x, y, 16, 1, '#5a6393'); px(c, x, y, 1, 16, '#4b5382');
+    px(c, x + 15, y, 1, 16, '#2a2f4c'); px(c, x, y + 15, 16, 1, '#2a2f4c');
+    [[2, 2], [12, 2], [2, 12], [12, 12]].forEach(([a, b]) => px(c, x + a, y + b, 2, 2, '#2a2f4c'));
+    if (seed % 3 === 0) { px(c, x + 4, y + 6, 8, 1, '#2a2f4c'); px(c, x + 4, y + 8, 8, 1, '#2a2f4c'); px(c, x + 4, y + 10, 8, 1, '#2a2f4c'); }
+  }
+  /* Genisligi w, yuksekligi h karo olan blok dokusu. piston=true ise
+     (lazer kapisinin ust kolonu) seritli kenar altta olur. */
+  function solidTexture(scene, key, w, h, piston) {
+    mk(scene, key, w * 16, h * 16, c => {
+      for (let ty = 0; ty < h; ty++) for (let tx = 0; tx < w; tx++) metalTile(c, tx * 16, ty * 16, tx + ty);
+      if (piston) {
+        stripeBand(c, 0, h * 16 - 5, w * 16, 5);
+        px(c, 0, h * 16 - 6, w * 16, 1, '#0f1020');
+      } else {
+        stripeBand(c, 0, 0, w * 16, 5);
+        px(c, 0, 5, w * 16, 1, '#0f1020');
+      }
+    });
+  }
+
+  /* ---------------- ARKA PLAN ---------------- */
+  function buildBackdrop(scene) {
+    // Uzay: bantli mor gradyan + yildizlar + dev ay
+    mk(scene, 'space', W, H, c => {
+      const bands = ['#0b0818', '#100b24', '#150e2d', '#1a1236', '#20173e', '#271c46'];
+      const bh = H / bands.length;
+      bands.forEach((col, i) => px(c, 0, Math.floor(i * bh), W, Math.ceil(bh) + 1, col));
+      for (let i = 1; i < bands.length; i++) {
+        const y = Math.floor(i * bh);
+        for (let x = 0; x < W; x += 2) { px(c, x, y - 1, 1, 1, bands[i]); px(c, x + 1, y, 1, 1, bands[i - 1]); }
+      }
+      const r = mulberry32(7);
+      const cols = ['#ffffff', '#cfd8ff', '#f2c14e', '#d94fd0'];
+      for (let i = 0; i < 170; i++) {
+        const x = Math.floor(r() * W), y = Math.floor(r() * H), col = cols[Math.floor(r() * cols.length)];
+        px(c, x, y, 1, 1, col);
+        if (r() < 0.08) { px(c, x - 1, y, 3, 1, col); px(c, x, y - 1, 1, 3, col); }
+      }
+      // dev ay
+      const cx = 330, cy = 86, R = 64;
+      for (let y = -R; y <= R; y++) for (let x = -R; x <= R; x++) {
+        const d = Math.hypot(x, y);
+        if (d > R) continue;
+        let col = d > R - 3 ? '#e8c3a4' : '#d9a98a';
+        const shade = x / R + (y / R) * 0.3;
+        if (shade > 0.62 || (shade > 0.35 && ((x + y) & 1) === 0)) col = '#b9856a';
+        px(c, cx + x, cy + y, 1, 1, col);
+      }
+      [[-22, -16, 12], [12, 10, 9], [-6, 32, 7], [30, -26, 6], [-38, 14, 6], [14, -40, 5]].forEach(([dx, dy, rr]) => {
+        for (let y = -rr; y <= rr; y++) for (let x = -rr; x <= rr; x++) {
+          const d = Math.hypot(x, y);
+          if (d > rr) continue;
+          px(c, cx + dx + x, cy + dy + y, 1, 1, d > rr - 1.5 && (x + y) < 0 ? '#e0b79b' : '#c4917a');
+        }
+      });
+    });
+
+    // Duvar: metal paneller + uzaya bakan pencere (pencere ici saydam)
+    mk(scene, 'wall', 128, 272, c => {
+      px(c, 0, 0, 128, 272, '#2d3250');
+      for (let py = 0; py < 272; py += 68) for (let pxx = 0; pxx < 128; pxx += 64) {
+        px(c, pxx, py, 64, 1, '#3b4268'); px(c, pxx, py, 1, 68, '#3b4268');
+        px(c, pxx + 63, py, 1, 68, '#212540'); px(c, pxx, py + 67, 64, 1, '#212540');
+        [[3, 3], [59, 3], [3, 63], [59, 63]].forEach(([a, b]) => px(c, pxx + a, py + b, 2, 2, '#4e5683'));
+      }
+      px(c, 0, 200, 128, 72, 'rgba(0,0,0,0.18)');
+      // boru
+      px(c, 0, 118, 128, 10, '#3a4066'); px(c, 0, 118, 128, 2, '#58628e'); px(c, 0, 126, 128, 2, '#1c2038');
+      [[30, 116], [94, 116]].forEach(([a, b]) => px(c, a, b, 4, 14, '#1c2038'));
+      // pencere
+      px(c, 28, 30, 72, 52, '#161a2e');
+      px(c, 30, 32, 68, 48, '#4e5683');
+      px(c, 32, 34, 64, 44, '#161a2e');
+      c.clearRect(34, 36, 60, 40);
+      px(c, 63, 36, 2, 40, '#20243d');
+    });
+
+    // Kenarlari karartan vinyet
+    mk(scene, 'vignette', W, H, c => {
+      const g = c.createRadialGradient(W / 2, H / 2, 110, W / 2, H / 2, 310);
+      g.addColorStop(0, 'rgba(0,0,0,0)');
+      g.addColorStop(1, 'rgba(0,0,0,0.55)');
+      c.fillStyle = g; c.fillRect(0, 0, W, H);
+    });
+  }
+
+  /* Sahneye arka plan katmanlarini ekler */
+  function backdrop(scene) {
+    scene.add.image(0, 0, 'space').setOrigin(0).setScrollFactor(0).setDepth(-30);
+    const r = mulberry32(11);
+    for (let i = 0; i < 20; i++) {
+      const s = scene.add.image(Math.floor(r() * W), Math.floor(r() * H), 'spark')
+        .setScrollFactor(0).setDepth(-25).setAlpha(0.15 + r() * 0.2).setTint(i % 3 === 0 ? 0xf2c14e : (i % 3 === 1 ? 0xd94fd0 : 0xffffff));
+      scene.tweens.add({ targets: s, alpha: 1, duration: 600 + r() * 1400, yoyo: true, repeat: -1, delay: r() * 1500 });
+    }
+    const wall = scene.add.tileSprite(0, 0, W, H, 'wall').setOrigin(0).setScrollFactor(0).setDepth(-20);
+    scene.add.image(0, 0, 'vignette').setOrigin(0).setScrollFactor(0).setDepth(90);
+    return { wall };
+  }
+
+  function build(scene) {
+    buildCat(scene);
+    buildBoxes(scene);
+    buildHazards(scene);
+    buildProps(scene);
+    buildBackdrop(scene);
+  }
+
+  return { build, backdrop, solidTexture, mk, px };
+})();
+
+</script>
+  <script>
+/* ============================================================
+   scenes.js - Oyunun sahneleri
+     BootScene  : grafikleri cizer, veritabanini baslatir
+     MenuScene  : oyuncu adi girisi + liderlik tablosu (SQL'den)
+     GameScene  : platform oyunu (kedi, kargo, lazer, dikenler, zero-g)
+     EndScene   : sonuc ekrani, skoru SQL'e kaydeder, liderlik tablosu
+   ============================================================ */
+
+const W = 480, H = 272;
+const FONT = '"Press Start 2P", "PS2P Local", monospace';
+
+/* Oyun boyunca tasinan bilgiler */
+const G = {
+  name: 'PILOT', lives: 3, maxLives: 5, score: 0, cargo: 0, ms: 0, level: 0,
+  reset() { this.lives = 3; this.score = 0; this.cargo = 0; this.ms = 0; this.level = 0; }
+};
+
+/* Yazi olusturma yardimcisi */
+function txt(scene, x, y, s, size, color, origin) {
+  const o = origin || [0, 0];
+  const t = scene.add.text(x, y, s, { fontFamily: FONT, fontSize: (size || 8) + 'px', color: color || '#f2c14e' }).setOrigin(o[0], o[1]);
+  t.setShadow(1, 1, '#000000', 0, false, true);
+  return t;
+}
+const pad = (n, l) => String(n).padStart(l, '0');
+const approach = (v, target, d) => (v < target ? Math.min(v + d, target) : Math.max(v - d, target));
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+class BootScene extends Phaser.Scene {
+  constructor() { super('Boot'); }
+  create() {
+    ART.build(this);
+    const A = (key, frames, rate, repeat) => this.anims.create({ key, frames: frames.map(f => ({ key: f })), frameRate: rate, repeat });
+    A('idle', ['cat_idle0', 'cat_idle1'], 2.5, -1);
+    A('walk', ['cat_walk0', 'cat_walk1', 'cat_walk2', 'cat_walk3'], 9, -1);
+    A('jump', ['cat_jump'], 1, -1);
+    A('hurt', ['cat_hurt'], 1, -1);
+    txt(this, W / 2, H / 2, 'YUKLENIYOR...', 8, '#8fd3ff', [0.5, 0.5]);
+    GameDB.init(LEVELS).then(() => this.scene.start('Menu'));
+  }
+}
+
+/* ============================================================
+   MENU
+   ============================================================ */
+class MenuScene extends Phaser.Scene {
+  constructor() { super('Menu'); }
+
+  create() {
+    this.started = false;
+    this.bd = ART.backdrop(this);
+    this.cameras.main.fadeIn(300);
+
+    const title = txt(this, W / 2, 14, 'MEOW-G TERMINAL', 16, '#f2c14e', [0.5, 0]);
+    this.tweens.add({ targets: title, y: 18, duration: 1300, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
+    txt(this, W / 2, 40, 'UZAY KARGO OPERASYONU', 8, '#8fd3ff', [0.5, 0]);
+
+    // Kedi ve suzulen kutular
+    const cat = this.add.sprite(96, 112, 'cat_idle0').setScale(4).play('idle');
+    this.tweens.add({ targets: cat, y: 102, duration: 1500, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
+    [[40, 78, 'box_blue', 0], [158, 96, 'box_brown', 400], [150, 142, 'box_blue', 800], [36, 146, 'box_brown', 1200]].forEach(([x, y, k, d]) => {
+      const b = this.add.image(x, y, k).setScale(2);
+      this.tweens.add({ targets: b, y: y - 8, angle: 12, duration: 1800, yoyo: true, repeat: -1, ease: 'Sine.inOut', delay: d });
+    });
+
+    // Oyuncu adi
+    txt(this, 24, 162, 'PILOT ADI:', 8, '#f2c14e');
+    this.add.rectangle(24, 176, 168, 22, 0x0b0818).setOrigin(0).setStrokeStyle(2, 0x8fd3ff);
+    this.name = '';
+    try { this.name = (localStorage.getItem('zerog_name') || '').slice(0, 10); } catch (e) {}
+    this.nameText = txt(this, 32, 183, '', 8, '#ffffff');
+    this.go = txt(this, 24, 208, 'ENTER: BASLAT', 8, '#2bd96b');
+    this.go.setInteractive({ useHandCursor: true }).on('pointerdown', () => this.start());
+    this.tweens.add({ targets: this.go, alpha: 0.35, duration: 500, yoyo: true, repeat: -1 });
+
+    // Liderlik tablosu (SQL sorgusu ile)
+    this.add.rectangle(244, 62, 224, 140, 0x0b0818, 0.85).setOrigin(0).setStrokeStyle(2, 0x5a6393);
+    txt(this, 256, 70, 'LIDERLIK TABLOSU', 8, '#8fd3ff');
+    const rows = GameDB.topScores(5);
+    if (!rows.length) {
+      txt(this, 256, 106, 'HENUZ SKOR YOK', 8, '#ffffff');
+      txt(this, 256, 124, 'ILK PILOT SEN OL!', 8, '#f2c14e');
+    } else {
+      rows.forEach((r, i) => {
+        const col = i === 0 ? '#f2c14e' : '#ffffff';
+        txt(this, 256, 92 + i * 20, (i + 1) + '.', 8, col);
+        txt(this, 282, 92 + i * 20, r.Ad, 8, col);
+        txt(this, 458, 92 + i * 20, pad(r.Skor, 5), 8, col, [1, 0]);
+      });
+    }
+    txt(this, 256, 188, 'SQL: JOIN + GROUP BY', 8, '#7bd88f').setAlpha(0.8);
+
+    txt(this, W / 2, 226, 'OKLAR / WASD: YURU   YUKARI / BOSLUK: ZIPLA', 8, '#c5cbe0', [0.5, 0]);
+    txt(this, W / 2, 240, 'P: DURAKLAT    M: SES ACIK/KAPALI', 8, '#c5cbe0', [0.5, 0]);
+    txt(this, W / 2, 256, GameDB.label, 8, GameDB.mode === 'SQLITE' ? '#7bd88f' : '#ff8a8a', [0.5, 0]);
+
+    this.refresh();
+    this.input.keyboard.on('keydown', ev => {
+      SFX.start();
+      const k = ev.key;
+      if (k === 'Enter') { this.start(); return; }
+      if (k === 'Backspace') this.name = this.name.slice(0, -1);
+      else if (k.length === 1 && /[a-z0-9]/i.test(k) && this.name.length < 10) { this.name += k.toUpperCase(); SFX.play('tick'); }
+      this.refresh();
+    });
+    this.input.once('pointerdown', () => SFX.start());
+  }
+
+  refresh() {
+    const cursor = Math.floor(this.time.now / 400) % 2 ? '_' : ' ';
+    this.nameText.setText((this.name || '') + cursor);
+  }
+
+  update() {
+    this.bd.wall.tilePositionX += 0.25;
+    this.refresh();
+  }
+
+  start() {
+    if (this.started) return;
+    this.started = true;
+    G.reset();
+    G.name = this.name || 'PILOT';
+    try { localStorage.setItem('zerog_name', G.name); } catch (e) {}
+    GameDB.resetRun();
+    SFX.start(); SFX.play('start');
+    this.cameras.main.fadeOut(250);
+    this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('Game', { level: 0 }));
+  }
+}
+
+/* ============================================================
+   GAME
+   ============================================================ */
+class GameScene extends Phaser.Scene {
+  constructor() { super('Game'); }
+
+  init(data) { this.lvlIndex = (data && data.level) || 0; }
+
+  create() {
+    const L = this.L = LEVELS[this.lvlIndex];
+    const worldW = L.cols * TILE;
+
+    this.state = 'play';
+    this.clock = 0; this.elapsed = 0;
+    this.invuln = 0; this.stun = 0; this.coyote = 0; this.buffer = 0;
+    this.jumpCut = false; this.inZone = false; this.wasGround = false;
+    this.lastMsg = -99999; this.lastLaserSfx = -99999;
+    this.collected = 0; this.total = L.cargo.length; this.doorOpen = false;
+    this.respawn = { x: L.start[0] * TILE + 8, y: L.start[1] * TILE - 1 };
+    this.zones = []; this.lasers = []; this.cpList = [];
+
+    this.physics.world.setBounds(0, 0, worldW, H + 400);
+    this.physics.world.checkCollision.down = false;   // asagi dusunce olum (kendimiz kontrol ediyoruz)
+    this.cameras.main.setBounds(0, 0, worldW, H);
+    this.cameras.main.fadeIn(300);
+    this.bd = ART.backdrop(this);
+
+    // Parcacik efektleri
+    this.fxDust = this.add.particles(0, 0, 'spark', { lifespan: 380, speed: { min: 15, max: 45 }, scale: { start: 1, end: 0 }, gravityY: 40, tint: 0xaab4d8, emitting: false }).setDepth(40);
+    this.fxSpark = this.add.particles(0, 0, 'spark', { lifespan: 520, speed: { min: 30, max: 90 }, scale: { start: 1.3, end: 0 }, gravityY: 60, tint: 0xf2c14e, emitting: false }).setDepth(40);
+    this.fxHurt = this.add.particles(0, 0, 'spark', { lifespan: 500, speed: { min: 40, max: 120 }, scale: { start: 1.4, end: 0 }, gravityY: 120, tint: 0xff4466, emitting: false }).setDepth(40);
+
+    this.buildPlayer();
+    this.buildLevel();
+    this.buildHud();
+    this.buildInput();
+
+    GameDB.setLogger(s => this.logText && this.logText.setText('SQL> ' + (s.length > 54 ? s.slice(0, 53) + '~' : s)));
+    this.events.once('shutdown', () => GameDB.setLogger(null));
+
+    // Bolum baslik karti
+    const t1 = txt(this, W / 2, 62, 'SEKTOR ' + L.id, 16, '#f2c14e', [0.5, 0.5]).setScrollFactor(0).setDepth(110);
+    const t2 = txt(this, W / 2, 86, L.name, 8, '#8fd3ff', [0.5, 0.5]).setScrollFactor(0).setDepth(110);
+    this.tweens.add({ targets: [t1, t2], alpha: 0, delay: 1800, duration: 700, onComplete: () => { t1.destroy(); t2.destroy(); } });
+  }
+
+  /* ---------------- seviyeyi kur ---------------- */
+  buildLevel() {
+    const L = this.L;
+    const p = this.player;
+
+    // Katı bloklar
+    this.solids = this.physics.add.staticGroup();
+    const list = L.solids.map(s => s.concat(false));
+    L.lasers.forEach(l => list.push([l[0] - 1, 0, 3, l[1], true]));   // lazer kapisinin ust kolonu
+    list.forEach(([x, y, w, h, piston], i) => {
+      const key = 'solid_' + L.id + '_' + i;
+      ART.solidTexture(this, key, w, h, piston);
+      this.solids.create(x * TILE, y * TILE, key).setOrigin(0, 0).refreshBody();
+    });
+    this.physics.add.collider(p, this.solids);
+
+    // Zero-G alanlari
+    L.zones.forEach(([x, y, w, h]) => {
+      const rect = new Phaser.Geom.Rectangle(x * TILE, y * TILE, w * TILE, h * TILE);
+      this.zones.push(rect);
+      this.add.rectangle(rect.x, rect.y, rect.width, rect.height, 0x4aa8ff, 0.1).setOrigin(0).setDepth(-6);
+      this.add.rectangle(rect.x, rect.y, rect.width, 2, 0x8fd3ff, 0.5).setOrigin(0).setDepth(-6);
+      txt(this, rect.x + 4, rect.y + 5, 'ZERO-G', 8, '#8fd3ff').setAlpha(0.6).setDepth(-5);
+      const n = Math.floor(w * h / 5);
+      for (let i = 0; i < n; i++) {
+        const bx = rect.x + Math.random() * rect.width, by = rect.y + Math.random() * rect.height;
+        const b = this.add.image(bx, by, 'bubble').setAlpha(0.3 + Math.random() * 0.4).setDepth(-5);
+        this.tweens.add({ targets: b, y: by - 30 - Math.random() * 40, alpha: 0, duration: 2500 + Math.random() * 3000, repeat: -1, delay: Math.random() * 3000 });
+      }
+    });
+
+    // Dikenler
+    L.spikes.forEach(([x, y, w]) => {
+      for (let i = 0; i < w; i++) this.add.image((x + i) * TILE, y * TILE, 'spikes').setOrigin(0, 0).setDepth(5);
+      const z = this.add.zone(x * TILE + w * 8, y * TILE + 8, w * TILE - 4, 10);
+      this.physics.add.existing(z, true);
+      this.hazard(z);
+    });
+
+    // Lazer kapilari
+    L.lasers.forEach(([x, y1, period, offset]) => {
+      const top = y1 * TILE + 5, bottom = 15 * TILE - 3;
+      const cx = x * TILE + 8;
+      const glow = this.add.rectangle(cx, (top + bottom) / 2, 8, bottom - top, 0xff2d55, 0.35).setDepth(6);
+      const beam = this.add.rectangle(cx, (top + bottom) / 2, 4, bottom - top, 0xffd0d8).setDepth(7);
+      this.physics.add.existing(beam, true);
+      const topEm = this.add.image(x * TILE, y1 * TILE, 'emit_off').setOrigin(0, 0).setDepth(8);
+      const botEm = this.add.image(x * TILE, 15 * TILE - 3, 'plate_off').setOrigin(0, 0).setDepth(8);
+      beam.setData('on', false);
+      this.physics.add.overlap(p, beam, () => this.hurt(), () => beam.getData('on'));
+      this.lasers.push({ x, beam, glow, topEm, botEm, period, offset, on: false, warn: false });
+      glow.setVisible(false); beam.setVisible(false);
+    });
+
+    // Mayinlar
+    this.mines = this.physics.add.group({ allowGravity: false, immovable: true });
+    L.mines.forEach(([x, y, amp, period]) => {
+      const m = this.mines.create(x * TILE + 8, y * TILE + 8, 'mine').setDepth(9);
+      m.body.setCircle(5, 3, 3);
+      this.tweens.add({ targets: m, y: m.y + amp, duration: period / 2, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
+      this.tweens.add({ targets: m, angle: 360, duration: 3000, repeat: -1 });
+    });
+    this.physics.add.overlap(p, this.mines, () => this.hurt());
+
+    // Kontrol noktalari
+    L.checkpoints.forEach(([x, y]) => {
+      const img = this.add.image(x * TILE + 4, y * TILE - 16, 'cp_off').setOrigin(0, 0).setDepth(4);
+      const z = this.add.zone(x * TILE + 8, y * TILE - 10, 16, 20);
+      this.physics.add.existing(z, true);
+      const cp = { img, active: false, x: x * TILE + 8, y: y * TILE - 1 };
+      this.cpList.push(cp);
+      this.physics.add.overlap(p, z, () => {
+        if (cp.active) return;
+        this.cpList.forEach(o => { if (o.active) { o.active = false; o.img.setTexture('cp_off'); } });
+        cp.active = true; img.setTexture('cp_on');
+        this.respawn = { x: cp.x, y: cp.y };
+        SFX.play('checkpoint');
+        this.popText(cp.x, cp.y - 30, 'KAYIT!', '#2bd96b');
+      });
+    });
+
+    // Kargolar
+    this.cargoGroup = this.physics.add.group({ allowGravity: false, immovable: true });
+    L.cargo.forEach(d => {
+      const c = this.cargoGroup.create(d.x * TILE + 8, d.y * TILE + 8, d.tur === 'k' ? 'box_brown' : 'box_blue').setDepth(10);
+      c.body.setSize(12, 12);
+      c.setData('d', d);
+      this.tweens.add({ targets: c, y: c.y - 3, duration: 900 + (d.id % 5) * 130, yoyo: true, repeat: -1, ease: 'Sine.inOut', delay: (d.id % 7) * 90 });
+    });
+    this.physics.add.overlap(p, this.cargoGroup, (pl, c) => this.collectCargo(c));
+
+    // Cikis kapisi
+    const ex = L.exit[0] * TILE, ey = L.exit[1] * TILE;
+    this.door = this.add.image(ex, ey, 'door_closed').setOrigin(0, 0).setDepth(4);
+    this.exitText = txt(this, ex + 8, ey - 10, 'CIKIS', 8, '#2bd96b', [0.5, 0.5]).setDepth(4).setVisible(false);
+    const dz = this.add.zone(ex + 8, ey + 16, 12, 30);
+    this.physics.add.existing(dz, true);
+    this.physics.add.overlap(p, dz, () => this.touchDoor());
+
+    // Ipucu yazilari
+    (L.hints || []).forEach(([x, y, s]) => txt(this, x * TILE, y * TILE, s, 8, '#ffffff', [0.5, 0.5]).setAlpha(0.8).setDepth(-3));
+  }
+
+  hazard(zone) { this.physics.add.overlap(this.player, zone, () => this.hurt()); }
+
+  /* ---------------- oyuncu ---------------- */
+  buildPlayer() {
+    const p = this.player = this.physics.add.sprite(this.respawn.x, this.respawn.y, 'cat_idle0');
+    p.setOrigin(0.5, 1).setDepth(20);
+    p.body.setSize(8, 12).setOffset(4, 5);       // kedinin carpisma kutusu: dar ve ayaklarda
+    p.setCollideWorldBounds(true);
+    p.body.setMaxVelocity(300, 520);
+    p.anims.play('idle');
+    this.cameras.main.startFollow(p, true, 0.1, 0.1);
+  }
+
+  /* ---------------- HUD ---------------- */
+  buildHud() {
+    const d = 100;
+    const lbl = (x, y, s) => txt(this, x, y, s, 8, '#f2c14e').setScrollFactor(0).setDepth(d);
+    const val = (x, y, s) => txt(this, x, y, s, 8, '#ffffff').setScrollFactor(0).setDepth(d);
+    lbl(8, 6, 'LIVES:'); lbl(8, 18, 'SCORE:'); lbl(8, 30, 'CARGO:');
+    this.hLives = val(64, 6, ''); this.hScore = val(64, 18, ''); this.hCargo = val(64, 30, '');
+    this.hLevel = txt(this, W - 8, 6, 'SEKTOR ' + this.L.id + '/' + LEVELS.length, 8, '#8fd3ff', [1, 0]).setScrollFactor(0).setDepth(d);
+    this.hTime = txt(this, W - 8, 18, '00:00', 8, '#ffffff', [1, 0]).setScrollFactor(0).setDepth(d);
+    this.hSound = txt(this, W - 8, 30, '', 8, '#c5cbe0', [1, 0]).setScrollFactor(0).setDepth(d);
+    this.hSound.setInteractive({ useHandCursor: true }).on('pointerdown', () => this.toggleSound());
+    this.add.rectangle(0, H - 12, W, 12, 0x000000, 0.6).setOrigin(0).setScrollFactor(0).setDepth(99);
+    this.logText = txt(this, 4, H - 10, 'SQL> ' + (GameDB.lastSql || '').slice(0, 54), 8, '#7bd88f').setScrollFactor(0).setDepth(100);
+    this.updateHud();
+  }
+
+  updateHud() {
+    this.hLives.setText(String(G.lives));
+    this.hScore.setText(pad(G.score, 5));
+    this.hCargo.setText(this.collected + '/' + this.total);
+    this.hSound.setText(SFX.muted ? 'SES: KAPALI' : 'SES: ACIK');
+  }
+
+  toggleSound() { SFX.toggleMute(); this.updateHud(); }
+
+  buildInput() {
+    const kb = this.input.keyboard;
+    kb.addCapture('SPACE,UP,DOWN,LEFT,RIGHT');
+    this.cur = kb.createCursorKeys();
+    this.keys = kb.addKeys('W,A,S,D,SPACE');
+    kb.on('keydown-M', () => this.toggleSound());
+    kb.on('keydown-P', () => this.togglePause());
+    kb.on('keydown', () => SFX.start());
+  }
+
+  togglePause() {
+    if (this.state === 'play') {
+      this.state = 'paused';
+      this.physics.pause(); this.tweens.pauseAll();
+      this.pauseText = txt(this, W / 2, H / 2, 'DURAKLATILDI', 16, '#ffffff', [0.5, 0.5]).setScrollFactor(0).setDepth(130);
+    } else if (this.state === 'paused') {
+      this.state = 'play';
+      this.physics.resume(); this.tweens.resumeAll();
+      if (this.pauseText) this.pauseText.destroy();
+    }
+  }
+
+  /* ---------------- olaylar ---------------- */
+  popText(x, y, s, color) {
+    const t = txt(this, x, y, s, 8, color || '#ffffff', [0.5, 0.5]).setDepth(60);
+    this.tweens.add({ targets: t, y: y - 18, alpha: 0, duration: 900, onComplete: () => t.destroy() });
+  }
+
+  collectCargo(c) {
+    if (!c.active || this.state !== 'play') return;
+    const d = c.getData('d');
+    this.tweens.killTweensOf(c);
+    c.disableBody(true, true);
+    this.fxSpark.explode(8, c.x, c.y);
+    GameDB.collect(d.id);                                   // SQL: UPDATE
+    const prog = GameDB.cargoProgress(this.L.id);           // SQL: SELECT COUNT ... CASE
+    this.collected = prog.toplanan;
+    G.score += d.puan; G.cargo++;
+    SFX.play('collect');
+    this.popText(c.x, c.y - 10, '+' + d.puan, '#f2c14e');
+    this.updateHud();
+    if (this.collected >= this.total && !this.doorOpen) this.openDoor();
+  }
+
+  openDoor() {
+    this.doorOpen = true;
+    this.door.setTexture('door_open');
+    this.exitText.setVisible(true);
+    this.tweens.add({ targets: this.exitText, alpha: 0.2, duration: 400, yoyo: true, repeat: -1 });
+    SFX.play('open');
+    this.popText(this.door.x + 8, this.door.y - 26, 'KAPI ACILDI!', '#2bd96b');
+  }
+
+  touchDoor() {
+    if (this.state !== 'play') return;
+    if (this.doorOpen) { this.finishLevel(); return; }
+    if (this.clock - this.lastMsg > 1600) {
+      this.lastMsg = this.clock;
+      SFX.play('nope');
+      this.popText(this.door.x + 8, this.door.y - 12, 'KARGO EKSIK!', '#ff8a8a');
+    }
+  }
+
+  hurt() {
+    if (this.state !== 'play' || this.invuln > 0) return;
+    G.lives--;
+    this.updateHud();
+    SFX.play('hurt');
+    this.cameras.main.shake(180, 0.012);
+    const p = this.player;
+    this.fxHurt.explode(10, p.x, p.y - 8);
+    if (G.lives <= 0) { this.die(); return; }
+    this.invuln = 1600; this.stun = 350;
+    p.body.setVelocity(p.flipX ? 110 : -110, -190);
+  }
+
+  fallDeath() {
+    if (this.state !== 'play') return;
+    G.lives--;
+    this.updateHud();
+    SFX.play('hurt');
+    this.cameras.main.shake(180, 0.012);
+    if (G.lives <= 0) { this.die(); return; }
+    const p = this.player;
+    // body.reset: konumu VE fizik gecmisini sifirlar (setPosition kullanirsak kedi zeminden gecer)
+    p.body.reset(this.respawn.x, this.respawn.y);
+    p.body.setAllowGravity(true);
+    this.inZone = false;
+    this.invuln = 1600; this.stun = 0;
+  }
+
+  die() {
+    this.state = 'dead';
+    G.ms += this.elapsed;
+    SFX.play('gameover');
+    const p = this.player;
+    p.anims.play('hurt', true);
+    p.body.checkCollision.none = true;
+    p.body.setAllowGravity(true);
+    p.body.setVelocity(0, -220);
+    this.time.delayedCall(1500, () => {
+      this.cameras.main.fadeOut(300);
+      this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('End', { won: false }));
+    });
+  }
+
+  finishLevel() {
+    if (this.state !== 'play') return;
+    this.state = 'clear';
+    SFX.play('win');
+    const p = this.player;
+    p.body.setVelocity(0, 0); p.body.setAllowGravity(false);
+    p.anims.play('idle', true);
+    const secs = Math.floor(this.elapsed / 1000);
+    const bonus = Math.max(0, this.L.par - secs) * 5;
+    G.score += bonus; G.ms += this.elapsed;
+    const gainLife = G.lives < G.maxLives;
+    if (gainLife) G.lives++;
+    const st = GameDB.runStats();                           // SQL: COUNT + SUM
+    this.updateHud();
+
+    const last = this.lvlIndex >= LEVELS.length - 1;
+    const o = [];
+    const add = obj => { obj.setScrollFactor(0).setDepth(120); o.push(obj); return obj; };
+    add(this.add.rectangle(0, 0, W, H, 0x000000, 0.72).setOrigin(0));
+    add(this.add.rectangle(90, 44, 300, 190, 0x0b0818, 0.95).setOrigin(0).setStrokeStyle(2, 0x2bd96b));
+    add(txt(this, W / 2, 60, 'SEKTOR ' + this.L.id + ' TEMIZLENDI!', 8, '#2bd96b', [0.5, 0.5]));
+    const line = (y, a, b, col) => { add(txt(this, 108, y, a, 8, '#f2c14e')); add(txt(this, 372, y, b, 8, col || '#ffffff', [1, 0])); };
+    line(86, 'KARGO', this.collected + '/' + this.total);
+    line(104, 'SURE', secs + ' SN');
+    line(122, 'SURE BONUSU', '+' + bonus);
+    line(140, 'TOPLAM AGIRLIK', st.agirlik + ' KG');
+    line(158, 'SKOR', pad(G.score, 5), '#f2c14e');
+    if (gainLife) line(176, 'EKSTRA CAN', '+1', '#ff8a8a');
+    const hint = add(txt(this, W / 2, 210, last ? 'ENTER: SONUCLAR' : 'ENTER: SONRAKI SEKTOR', 8, '#ffffff', [0.5, 0.5]));
+    this.tweens.add({ targets: hint, alpha: 0.3, duration: 500, yoyo: true, repeat: -1 });
+
+    let done = false;
+    const next = () => {
+      if (done) return; done = true;
+      G.level = this.lvlIndex + 1;
+      this.cameras.main.fadeOut(250);
+      this.cameras.main.once('camerafadeoutcomplete', () => {
+        if (last) this.scene.start('End', { won: true });
+        else this.scene.restart({ level: G.level });
+      });
+    };
+    this.time.delayedCall(500, () => {
+      this.input.keyboard.once('keydown-ENTER', next);
+      this.input.once('pointerdown', next);
+    });
+  }
+
+  /* ---------------- her kare ---------------- */
+  update(time, delta) {
+    this.bd.wall.tilePositionX = this.cameras.main.scrollX * 0.6;
+    if (this.state !== 'play') return;
+
+    const dt = Math.min(delta, 50) / 1000;
+    this.clock += delta; this.elapsed += delta;
+    const p = this.player, b = p.body;
+    const secs = Math.floor(this.elapsed / 1000);
+    this.hTime.setText(pad(Math.floor(secs / 60), 2) + ':' + pad(secs % 60, 2));
+
+    // Lazerler
+    this.lasers.forEach(l => {
+      const ph = (this.clock + l.offset) % l.period;
+      const on = ph < 1600;
+      const warn = !on && ph >= l.period - 400;
+      if (on !== l.on) {
+        l.topEm.setTexture(on ? 'emit_on' : 'emit_off');
+        l.botEm.setTexture(on ? 'plate_on' : 'plate_off');
+        l.beam.setData('on', on);
+        if (on && Math.abs(p.x - (l.x * TILE + 8)) < 150 && this.clock - this.lastLaserSfx > 300) { SFX.play('laser'); this.lastLaserSfx = this.clock; }
+      }
+      l.on = on; l.warn = warn;
+      const show = on || warn;
+      l.beam.setVisible(show); l.glow.setVisible(show);
+      if (warn) { const f = Math.floor(this.clock / 60) % 2; l.beam.setAlpha(f ? 0.5 : 0.12); l.glow.setAlpha(f ? 0.2 : 0.05); }
+      else { l.beam.setAlpha(1); l.glow.setAlpha(0.35); }
+    });
+
+    // Girdiler
+    const left = this.cur.left.isDown || this.keys.A.isDown;
+    const right = this.cur.right.isDown || this.keys.D.isDown;
+    const up = this.cur.up.isDown || this.keys.W.isDown || this.keys.SPACE.isDown;
+    const down = this.cur.down.isDown || this.keys.S.isDown;
+    const JD = Phaser.Input.Keyboard.JustDown;
+    const jumpPressed = [JD(this.cur.up), JD(this.keys.W), JD(this.keys.SPACE)].some(Boolean);
+    let dir = (right ? 1 : 0) - (left ? 1 : 0);
+    if (this.stun > 0) { this.stun -= delta; dir = 0; }
+    if (this.invuln > 0) { this.invuln -= delta; p.setAlpha(Math.floor(this.clock / 80) % 2 ? 0.35 : 1); } else p.setAlpha(1);
+
+    // Zero-G alani
+    const inZone = this.zones.some(z => z.contains(b.center.x, b.center.y));
+    if (inZone !== this.inZone) {
+      this.inZone = inZone;
+      b.setAllowGravity(!inZone);
+      if (inZone) { SFX.play('zerog'); b.velocity.y *= 0.3; this.popText(p.x, p.y - 26, 'ZERO-G!', '#8fd3ff'); }
+    }
+
+    const onGround = b.blocked.down || b.touching.down;
+    if (inZone) {
+      if (this.stun <= 0) {
+        const ty = up ? -75 : (down ? 75 : 0);
+        b.velocity.x += (dir * 85 - b.velocity.x) * Math.min(1, 6 * dt);
+        b.velocity.y += (ty - b.velocity.y) * Math.min(1, 4 * dt);
+      }
+    } else {
+      if (onGround) { this.coyote = 110; this.jumpCut = false; } else this.coyote -= delta;
+      if (jumpPressed) this.buffer = 120; else this.buffer -= delta;
+      if (this.stun <= 0) b.velocity.x = approach(b.velocity.x, dir * 120, (onGround ? 1500 : 950) * dt);
+      if (this.buffer > 0 && this.coyote > 0 && this.stun <= 0) {
+        b.setVelocityY(-320);
+        this.buffer = 0; this.coyote = 0;
+        SFX.play('jump');
+        this.fxDust.explode(4, p.x, p.y);
+      }
+      if (!up && b.velocity.y < -110 && !onGround && !this.jumpCut) { b.velocity.y *= 0.5; this.jumpCut = true; }
+      if (onGround && !this.wasGround && this.prevVy > 170) this.fxDust.explode(5, p.x, p.y);
+    }
+    this.wasGround = onGround; this.prevVy = b.velocity.y;
+
+    // Animasyon ve yon
+    if (dir !== 0) p.setFlipX(dir < 0);
+    let anim = 'idle';
+    if (this.stun > 0) anim = 'hurt';
+    else if (inZone || !onGround) anim = 'jump';
+    else if (Math.abs(b.velocity.x) > 12) anim = 'walk';
+    p.anims.play(anim, true);
+
+    // Bosluga dusme
+    if (p.y > H + 30) this.fallDeath();
+  }
+}
+
+/* ============================================================
+   END
+   ============================================================ */
+class EndScene extends Phaser.Scene {
+  constructor() { super('End'); }
+
+  create(data) {
+    const won = !!(data && data.won);
+    ART.backdrop(this);
+    this.cameras.main.fadeIn(300);
+
+    if (won) G.score += G.lives * 50;
+    const secs = Math.floor(G.ms / 1000);
+    GameDB.saveScore(G.name, G.score, G.cargo, secs);          // SQL: INSERT
+    const rows = GameDB.topScores(5);                          // SQL: JOIN + GROUP BY + ORDER BY + LIMIT
+    const lastQuery = GameDB.lastSql;
+
+    txt(this, W / 2, 14, won ? 'GOREV TAMAM!' : 'OYUN BITTI', 16, won ? '#2bd96b' : '#ff6b6b', [0.5, 0]);
+    txt(this, W / 2, 38, 'PILOT: ' + G.name, 8, '#8fd3ff', [0.5, 0]);
+    if (won) SFX.play('win');
+
+    const cat = this.add.sprite(60, 112, won ? 'cat_jump' : 'cat_hurt').setScale(4);
+    this.tweens.add({ targets: cat, y: 102, duration: 800, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
+
+    const line = (y, a, b) => { txt(this, 104, y, a, 8, '#f2c14e'); txt(this, 220, y, b, 8, '#ffffff', [1, 0]); };
+    line(70, 'SKOR', pad(G.score, 5));
+    line(88, 'KARGO', String(G.cargo));
+    line(106, 'SURE', secs + ' SN');
+    if (won) line(124, 'CAN BONUS', '+' + G.lives * 50);
+
+    this.add.rectangle(240, 60, 232, 124, 0x0b0818, 0.85).setOrigin(0).setStrokeStyle(2, 0x5a6393);
+    txt(this, 252, 68, 'LIDERLIK TABLOSU', 8, '#8fd3ff');
+    rows.forEach((r, i) => {
+      const me = r.Ad === G.name;
+      const col = me ? '#f2c14e' : '#ffffff';
+      txt(this, 252, 90 + i * 20, (me ? '>' : ' ') + (i + 1) + '.', 8, col);
+      txt(this, 292, 90 + i * 20, r.Ad, 8, col);
+      txt(this, 462, 90 + i * 20, pad(r.Skor, 5), 8, col, [1, 0]);
+    });
+
+    this.add.rectangle(8, 192, 464, 58, 0x000000, 0.6).setOrigin(0);
+    txt(this, 14, 196, 'SON SQL SORGUSU:', 8, '#7bd88f');
+    const q = txt(this, 14, 208, lastQuery.replace(/\s+/g, ' '), 8, '#c5cbe0');
+    q.setWordWrapWidth(452).setLineSpacing(2);
+
+    const hint = txt(this, W / 2, 254, 'ENTER: ANA MENU', 8, '#ffffff', [0.5, 0]);
+    this.tweens.add({ targets: hint, alpha: 0.3, duration: 500, yoyo: true, repeat: -1 });
+
+    this.input.keyboard.on('keydown-M', () => SFX.toggleMute());
+    this.time.delayedCall(600, () => {
+      this.input.keyboard.once('keydown-ENTER', () => this.toMenu());
+      this.input.once('pointerdown', () => this.toMenu());
+    });
+  }
+
+  toMenu() {
+    this.cameras.main.fadeOut(250);
+    this.cameras.main.once('camerafadeoutcomplete', () => this.scene.start('Menu'));
+  }
+}
+
+</script>
+</head>
+<body>
+  <div id="game"></div>
+  <noscript>Bu oyun JavaScript gerektirir.</noscript>
+  <script>
+/* ============================================================
+   main.js - Oyunu baslatir.
+   Ekran 480x272 piksel; tarayici penceresine sigacak sekilde
+   buyutulur (piksel kalitesi korunur).
+   ============================================================ */
+(function () {
+  const config = {
+    type: Phaser.AUTO,
+    parent: 'game',
+    width: 480,
+    height: 272,
+    pixelArt: true,
+    roundPixels: true,
+    backgroundColor: '#0b0818',
+    scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+    physics: { default: 'arcade', arcade: { gravity: { y: 800 }, debug: false } },
+    scene: [BootScene, MenuScene, GameScene, EndScene]
+  };
+
+  function baslat() { window.__game = new Phaser.Game(config); }
+
+  // Piksel font yuklenmeden baslama (yazilar bozuk gorunmesin).
+  // Iki kaynak var: Google Fonts (internetteyse) ve dosyaya gomulu kopya.
+  const yukle = f => (document.fonts && document.fonts.load)
+    ? Promise.race([document.fonts.load('8px "' + f + '"'), new Promise(r => setTimeout(r, 2500))]).catch(() => {})
+    : Promise.resolve();
+  Promise.all([yukle('Press Start 2P'), yukle('PS2P Local')]).then(baslat, baslat);
+})();
+
+</script>
+</body>
+</html>
