@@ -1,4 +1,5 @@
 # MEOW-G TERMINAL
+🎮 OYUNU TARAYICIDA HEMEN OYNAMAK İÇİN BURAYA TIKLAYIN (https://dijledogan.github.io/meow-g-terminal/)
 
 Uzay istasyonunda geçen, tarayıcıda oynanan **piksel platform oyunu**. Yerçekimi jeneratörleri bozulmuş. Astronot kedi, havada süzülen kargo kutularını toplayıp çıkış kapısına ulaşmaya çalışıyor. Lazer kapıları, dikenler ve mayınlar yolunu kesiyor.
 
