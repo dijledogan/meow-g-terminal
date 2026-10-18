@@ -88,4 +88,4 @@ Tek dosyalık sürüm için: `python build.py` → `dist/meow-g-terminal.html`
 
 ## Geliştirme notu
 
-Staj projesi olarak geliştirildi. Oyun fikri, SQL şeması ve tasarım kararları stajyere aittir; kod, yapay zekâ asistanı (Claude, Anthropic) ile birlikte yazılıp test edilmiştir.
+Bu proje, staj kapsamında modern yazılım geliştirme pratikleri uygulanarak hayata geçirilmiştir. Oyun mimarisi, SQL veritabanı şeması ve sistem tasarımı tamamen özgün olarak kurgulanmış; kodlama ve hata ayıklama (debugging) aşamalarında ise modern yapay zeka araçları (LLM) ile pair-programming (eşli programlama) tekniği kullanılarak iteratif bir süreç izlenmiştir.
